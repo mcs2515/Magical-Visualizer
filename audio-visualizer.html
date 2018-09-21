@@ -5,18 +5,22 @@
 	<title>Web Audio Visualizer</title>
     <link REL="StyleSheet" TYPE="text/css" HREF="css/main.css">
     <link REL="StyleSheet" TYPE="text/css" HREF="css/controls.css">
-<!--    <link REL="StyleSheet" TYPE="text/css" HREF="css/sliders.css">-->
+    <link REL="StyleSheet" TYPE="text/css" HREF="css/checkbox.css">
     <link rel="stylesheet" href="css/audioplayer.css" />
     <script src="js/canvasStuff.js"></script>
     <script src="js/jquery.js"></script>
-        <script src="js/audioplayer.js"></script>
-        <script> $(document.body).ready(function() { $( 'audio' ).audioPlayer(); });</script>
+    <script src="js/audioplayer.js"></script>
+    <script> $(document.body).ready(function() { 
+            $( 'audio' ).audioPlayer();
+            var audio = document.querySelector("audio");
+            audio.volume = 0.3;
+        });
+    </script>
 </head>
     
 <body>
     <canvas id="canvas" width="1200" height="775"></canvas>
-
-	<section id="controls">
+    <section id="controls">
         
          <section id= "title"> 
             <h1 id= "magical">Magical</h1>
@@ -35,6 +39,7 @@
                 <ul class= "playing" >
                     <li id= "Star_Prism" class= "selected">Star Prism</li> 
                     <li id= "Bloomin_Lights" >Bloomin' Lights</li>
+                    <li id= "My_Little_Hero" >My Little Hero</li>
                 </ul>
             </section>
         </section>
@@ -51,37 +56,39 @@
 
 
         <section class="effects">
-            <h4>Effects: </h4>
-  
-                <br/>
-                <label class= "sliders" for="slider1">Circle Radius: </label>
-                <input class= "sliders" id="slider1" type ="range" min ="190" max="300" step ="10" value ="200"/>
-                <span class= "sliders" style="float:right" class="sliderResults"></span><br/><br/>
-
-                <label class= "sliders" for="slider2">Grey Scale: </label>
-                <input class= "sliders" id="slider2" type ="range" min ="0.0" max="1.0" step =".05" value ="0.0"/>
-                <span class= "sliders" style="float:right" class="sliderResults"></span><br/><br/>
-
-                <label class= "sliders" for="slider3">Delay/Reverb: </label>
-                <input class= "sliders" id="slider3" type ="range" min ="0.0" max="1.0" step =".1" value ="0.0"/>
-                <span class= "sliders" style="float:right" class="sliderResults"></span><br/><br/>
+            <h4>Effects: </h4><br/>
+            <section class='labels'>         
+                <label for="slider1">Circle Radius: </label>
+                <label for="slider2">Grey Scale: </label>
+                <label for="slider3">Delay/Reverb: </label>
             </section>
-                
-            <section id="box" >
-                <input type="checkbox" id="invertCheckbox">
-                <label class = "boxLabel" for="invertCheckbox">Invert</label> 
+            <section class='sliders'>
+                <input class= "slider" id="slider1" type ="range" min ="190" max="300" step ="10" value ="200"/>
 
-                <input type="checkbox" id="noiseCheckbox">
-                <label class = "boxLabel" for="noiseCheckbox">Noise</label>
+                <input class= "slider" id="slider2" type ="range" min ="0.0" max="1.0" step =".05" value ="0.0"/>
 
-                <input type="checkbox" id="greenCheckbox">
-                <label for="greenCheckbox">Green Tint</label>
+                <input class= "slider" id="slider3" type ="range" min ="0.0" max="1.0" step =".1" value ="0.0"/>
             </section>
-      
-      <img src="media/background.jpg" id="background" width="1116" height="1116">
-      
-      <footer><h5 id= "copyright"> &copy; Copyright 2016 Megan Smith </h5></footer>
-	</section>
+        </section>
+
+        <section class="check_boxes" >  
+            <label class="container" for="invertCheckbox">Invert
+              <input type="checkbox" checked="checked" id="invertCheckbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container" for="noiseCheckbox">Noise
+              <input type="checkbox" id="noiseCheckbox">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container" for="tintCheckbox">Tint
+              <input type="checkbox" id="tintCheckbox">
+              <span class="checkmark"></span>
+            </label>
+        </section>
+        
+        <img src="media/background.jpg" id="background" width="1116" height="1116">
+        <footer><h5 id= "copyright"> &copy; Copyright 2016 Megan Smith </h5></footer>
+    </section>
 
 </body>
     

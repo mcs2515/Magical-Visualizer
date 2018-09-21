@@ -7,7 +7,7 @@
     var analyserNode; 
     var canvas,ctx;
     var greyScale=0.0, maxRadius=200, delayAmount= 0.0;
-    var invert=false, tintGreen=false, noise=false;
+    var invert=false, tint=false, noise=false;
     var modeType = "frequency";
     var img, pattern, ang = 0, rot=0;
     var my_gradient;
@@ -96,7 +96,7 @@
     function setupEffects(){
         //call the checkfunc method, sending the box id names and an anonymous function that sets a value
         checkfunc("invertCheckbox", function(v) { invert = v; });
-        checkfunc("greenCheckbox", function(v) { tintGreen = v; });
+        checkfunc("tintCheckbox", function(v) { tint = v; });
         checkfunc("noiseCheckbox", function(v) { noise = v; });
     }
 
@@ -276,7 +276,7 @@
         //data[i+3]is the alpha value
         for(var i=0; i<length; i+=4){
             //increase green value only
-            if(tintGreen){
+            if(tint){
                 data[i+1]= data[i]+60; //just the green channel this time
                 data[i+5]= data[i]+60; //just the green channel this time
             }
@@ -319,6 +319,7 @@
         //change the song when song is clicked
         document.querySelector("#Star_Prism").onclick = changeSong;
         document.querySelector("#Bloomin_Lights").onclick = changeSong;     
+        document.querySelector("#My_Little_Hero").onclick = changeSong;     
 
         //checks to see what mode the user clicks and calls the changeMode method
         document.querySelector("#frequency").onclick = changeMode;

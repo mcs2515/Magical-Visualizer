@@ -34,38 +34,68 @@
 .options li:hover{
     cursor: pointer;
     background: #555;
-    border-radius: 5pt;
+    border-radius: 8pt;
     color: mediumpurple;
 }
 
-.sliders{
-    margin-left: 15pt;
-    width: 50%;
-    margin-top: -5pt;
+.labels{
+    font-weight: bold;
+    color: grey;
+    display:flex;
+    flex-direction: column;
+    float: left;
+    padding-left: 30px;
+    padding-right: 15px;
 }
 
-#box{
-    position: relative;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 6pt;
+.labels label{
+    padding: 10px 0;
+}
+
+.effects section{
+    display: flex;
+}
+
+.effects .sliders{
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    height: 5px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    outline: none;
+    margin: 16px 0;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    background: #ccffcc;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:hover{
+    background-color: mediumpurple;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
 }
 
 .selected{
     background: #555;
-    border-radius: 5pt;
-}
-
-#slider1{
-    margin-left: 1em;
-}
-
-#slider2{
-    margin-left: 2.2em;
-}
-
-#slider3{
-    margin-left: .9em;
+    border-radius: 8pt;
 }
 
 #title{
@@ -94,14 +124,15 @@
 
 h4{
     margin-top: 10pt;
-    margin-bottom: 0;   
+    margin-bottom: 0;
+    padding-left: 5px;
 }
 
 footer{
     margin-top: 0pt;
     color: #555;
-    font-size: 8pt;
-    margin-top: 100pt;
+    font-size: 12pt;
+    margin-top: 80pt;
 }
 
 
