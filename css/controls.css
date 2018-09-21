@@ -6,41 +6,41 @@
     display: inline-block;
     background: #333333;
     width: 20%;
+    height: 775px;
     color: #eee;
-    padding: 1em;
+    padding: 0 1em;
     text-align: left;
-    top:0;
-    padding-top: 0pt;
-    padding-bottom: 0pt;
-    max-height: 775pt;
     box-shadow: 5px 5px 50px #000;
 }
 
 .options {
     font-weight: bold;
     color: #ccffcc;
-    width: 95%;
     margin: 0 auto;
+    width: 95%
 }
 
-
-.magicalColors{
-    color: #b4e0e4;
-
+.options ul {
+    padding: 0;
 }
 
-.options li{
+.options ul li{
     list-style: none;
     padding: .3em;
     border-bottom: 1px #333 solid;
-    position: relative;
-    margin-left: -15%;
     text-indent: 1em;
 }
 
+.options li:hover{
+    cursor: pointer;
+    background: #555;
+    border-radius: 5pt;
+    color: mediumpurple;
+}
+
 .sliders{
-    margin-left: 25pt;
-    width: 39%;
+    margin-left: 15pt;
+    width: 50%;
     margin-top: -5pt;
 }
 
@@ -51,34 +51,9 @@
     margin-top: 6pt;
 }
 
-.magicButton{
-        
-}
-
-.magicButton ul{
-    padding: 0;
-/*    margin-top: 30%;*/
-}
-
-.options li:hover{
-    cursor: pointer;
-    background: #555;
-    border-radius: 10pt;
-    color: mediumpurple;
-}
-
-.magicButton li:hover {
-    cursor: pointer;
-    background: #555;
-}
-
 .selected{
     background: #555;
-    border-radius: 10pt;
-}
-
-label{
-    margin-left: 0pt;
+    border-radius: 5pt;
 }
 
 #slider1{
@@ -93,15 +68,14 @@ label{
     margin-left: .9em;
 }
 
-
 #title{
+    padding-top: 20pt;
     position: relative;
     margin: 0 auto;
-    margin-bottom: 5pt;
+    margin-bottom: 15pt;
     height: 60pt;
     text-align: center;
 }
-
 
 #magical{
     font-family: 'Niconne';
@@ -117,60 +91,17 @@ label{
     margin-top: -63pt;
     font-size: 14pt;
 }
+
 h4{
-    margin-top: 0;
+    margin-top: 10pt;
     margin-bottom: 0;   
 }
 
-.magicButton{
-    position: relative;
-    margin: 0 auto;
-    text-align: center;
-    color: hotpink;
-    font-family: 'Niconne';
-    font-size: 20pt;
-    letter-spacing: 2px;
-    text-indent: 0;
-    border-radius: 100%;
-    border-width: 5pt;
-/*    border-top: 1px #333 solid;*/
-    border-style: solid;
-    border-color: #555;
-    width: 100pt;
-    height: 100pt;
-    margin-top: 21pt;
-    margin-bottom: 10pt
-}
-
-.magicTheme{
-    list-style: none;
-    padding-top: 30pt;
-    border-radius: 100%;
-    margin-top: -22.5pt;
-    margin-left: -2pt;
-    width: 104pt;
-    height: 75pt;
-}
-
-.changeTheme{
-    font-family: Ariel, sans-serif;
-    letter-spacing: 0;
-    font-size: 18pt;
-    color:floralwhite;
-    list-style: none;
-    padding-top: 35pt;
-    border-radius: 100%;
-    margin-top: -22.5pt;
-    margin-left: -2pt;
-    width: 104pt;
-    height: 70pt;
-}
-
-h5{
-    margin-bottom: 6pt;
+footer{
     margin-top: 0pt;
     color: #555;
     font-size: 8pt;
+    margin-top: 100pt;
 }
 
 
@@ -180,10 +111,13 @@ h5{
         display: block;
         position: relative;
         margin: 0 auto;
-        width: 677pt;
+        width: 625pt;
+        height: 450pt;
+        padding: 0 50px;
+    }
+    
+    #title{
         margin-bottom: 20pt;
-        margin-top: -5pt;
-        padding-bottom: 30pt;
     }
     
     #magical{
@@ -195,13 +129,15 @@ h5{
     }
     
     h4{
-        margin-left: 20pt;
+
+        margin-top: 15pt;
     }
 
     .options{
         position: relative;
         margin: 0 auto;
         margin-top: 10pt;
+        width: 100%;
     }
     
     .options li{
@@ -211,7 +147,6 @@ h5{
         display: inline;
         margin-right: 10pt;
     }
-    
     
     .modes li{
         width: 10ppt;
@@ -224,19 +159,6 @@ h5{
     
     .sliders{
         margin-left: 32pt;
-    }
-    
-    box{
-        float: right;
-    }
-    .boxLabel{
-        margin-right: 20pt;
-    }
-    
-    .magicButton{
-        position: relative;
-        margin: 0 auto;
-        margin-top: 30pt;
     }
     
     h5{
@@ -269,6 +191,7 @@ h5{
     .options ul li{
         margin-left: -25pt;
     }
+    
     .options li{
         display:block;
     }
@@ -278,6 +201,7 @@ h5{
     #controls{
         margin-bottom: 0pt;
         box-shadow: none;
+        height: 600px;
     }
     #magical{
         padding-top: 5pt;
@@ -313,7 +237,6 @@ h5{
         margin-left: -5pt; 
     }
     
-    
     .modes, .songs, .effects{
         position: relative;
         margin: 0 auto;
@@ -328,26 +251,6 @@ h5{
     
     .effects label{
         margin-left: 22pt; 
-    }
-
-    .boxLabel{
-        margin-right: 0;
-    }
-    
-    #box{
-        position: relative;
-        margin: 0 auto;
-        width:100%;
-    }
-    
-    .magicButton{
-        position: relative;
-        margin: 0 auto;
-        margin-top: 20pt;
-    }
-
-    
-    
-
+    }  
 }
 

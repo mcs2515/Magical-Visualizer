@@ -261,9 +261,8 @@
 			}
 			.audioplayer-volume:hover .audioplayer-volume-adjust
 			{
-				
-				top: 100%;
-                bottom: auto;
+				top: auto;
+				bottom: 100%;
 			}
 			.audioplayer-volume-adjust > div
 			{
