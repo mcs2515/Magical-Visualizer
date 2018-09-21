@@ -277,8 +277,8 @@
         for(var i=0; i<length; i+=4){
             //increase green value only
             if(tint){
-                data[i+1]= data[i]+60; //just the green channel this time
-                data[i+5]= data[i]+60; //just the green channel this time
+                data[i+1]= data[i]+60; 
+                data[i+5]= data[i]+60; 
             }
             if(invert){
                 var red=data[i], green=data[i+1], blue=data[i+2];

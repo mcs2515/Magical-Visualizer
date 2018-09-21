@@ -342,3 +342,28 @@
 		-o-transition: color .25s ease, background-color .25s ease, opacity .5s ease;
 		transition: color .25s ease, background-color .25s ease, opacity .5s ease;
 	}
+
+@media screen and (max-width: 1505px){
+    .audioplayer{
+        margin-top: 45px;
+        width: 470px;
+        border-radius: 8px;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .audioplayer{
+        margin-top: 45px;
+        width: 50%;
+        border-radius: 8px;
+    }
+}
+
+@media screen and (max-width: 675px){
+    .audioplayer{
+        width: 100%;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+}
+

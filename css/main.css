@@ -13,10 +13,11 @@ body{
 }
 
 canvas {
-  background: black; 
-  display : inline;
-  box-shadow: 5px 5px 50px #000;
-  z-index: -1;
+    background: black;
+    display : inline;
+    box-shadow: 5px 5px 50px #000;
+    border-radius: 10px 0 0 10px;
+    z-index: -1;
 }
 
 img{
@@ -44,6 +45,17 @@ img{
         position: relative;
         margin: 0 auto;
         margin-top: 20pt;
+        border-radius: 5px 5px 0 0;
+    }
+}
+
+@media screen and (max-width: 950px){
+    canvas{
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin: 0 auto;
+        border-radius: 0;
     }
 }
 
@@ -55,6 +67,7 @@ img{
     canvas{
         margin: 0 auto;
         width: 100%;
+        min-width: 360px;
         height: auto;
     }
     

@@ -78,3 +78,36 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+@media screen and (max-width: 1505px){
+    .check_boxes{
+        width: 60pt;
+        height: 70pt;
+        margin-top: 40pt;
+        flex-direction: column;
+        padding: 0pt;
+    }
+    
+    .container{
+        margin: 0;
+        padding-right: 5pt;
+    }
+    
+    .checkmark{
+        transform: scale(.8);
+    }
+}
+
+@media screen and (max-width: 950px){
+    .check_boxes{
+        height: 65pt;
+        margin-top: 35pt;
+        flex-direction: column;
+    }
+    
+    .container{
+        margin: 0;
+        font-size:  11pt; 
+        margin-left: 0pt;
+    }
+}

@@ -22,69 +22,78 @@
     <canvas id="canvas" width="1200" height="775"></canvas>
     <section id="controls">
         
-         <section id= "title"> 
-            <h1 id= "magical">Magical</h1>
-            <h1 id= "visual">Visualizer</h1>
-         </section>
-        
+        <div class='wrap'>
+            <section id= "title">
+                <h1 id= "magical">Magical</h1>
+                <h1 id= "visual">Visualizer</h1>
+            </section>
+            
 <!--        Audio Player Author: Osvaldas Valutis-->
 <!--        http://tympanus.net/codrops/2012/12/04/responsive-touch-friendly-audio-player/-->
-        <audio src="media/Star Prism.mp3" autostart="true" type='aduio/mpeg'></audio>
+            <audio src="media/Star Prism.mp3" autostart="true" type='aduio/mpeg'></audio>
+        </div>
         
+
         
         <br>
-        <section class= "songs">
-            <h4>Songs: </h4>
-            <section class= "options" id="songList">
-                <ul class= "playing" >
-                    <li id= "Star_Prism" class= "selected">Star Prism</li> 
-                    <li id= "Bloomin_Lights" >Bloomin' Lights</li>
-                    <li id= "My_Little_Hero" >My Little Hero</li>
-                </ul>
+        <div class='wrap'>
+            <section class='inner_wrap'>
+                <section class= "songs">
+                    <h4>Songs: </h4>
+                    <section class= "options" id="songList">
+                        <ul class= "playing" >
+                            <li id= "Star_Prism" class= "selected">Star Prism</li> 
+                            <li id= "Bloomin_Lights" >Bloomin' Lights</li>
+                            <li id= "My_Little_Hero" >My Little Hero</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section class="modes">
+                    <h4>Mode: </h4>
+                    <section class= "options" id="mode">
+                        <ul>
+                            <li id= "frequency" class= "selected">Frequency</li>
+                            <li id= "wave">Wave</li>
+                        </ul>
+                    </section>  
+                </section>
             </section>
-        </section>
+        
+            <section class='inner_wrap'>
+                <section class="effects">
+                    <h4>Effects: </h4><br/>
+                    <section class='labels'>         
+                        <label for="slider1">Circle Radius: </label>
+                        <label for="slider2">Grey Scale: </label>
+                        <label for="slider3">Delay/Reverb: </label>
+                    </section>
+                    <section class='sliders'>
+                        <input class= "slider" id="slider1" type ="range" min ="190" max="300" step ="10" value ="200"/>
 
-        <section class="modes">
-            <h4>Mode: </h4>
-            <section class= "options" id="mode">
-                <ul>
-                    <li id= "frequency" class= "selected">Frequency</li>
-                    <li id= "wave">Wave</li>
-                </ul>
-            </section>  
-        </section>
+                        <input class= "slider" id="slider2" type ="range" min ="0.0" max="1.0" step =".05" value ="0.0"/>
+
+                        <input class= "slider" id="slider3" type ="range" min ="0.0" max="1.0" step =".1" value ="0.0"/>
+                    </section>
+                </section>
 
 
-        <section class="effects">
-            <h4>Effects: </h4><br/>
-            <section class='labels'>         
-                <label for="slider1">Circle Radius: </label>
-                <label for="slider2">Grey Scale: </label>
-                <label for="slider3">Delay/Reverb: </label>
+                <section class="check_boxes" >  
+                    <label class="container" for="invertCheckbox">Invert
+                      <input type="checkbox" checked="checked" id="invertCheckbox">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container" for="noiseCheckbox">Noise
+                      <input type="checkbox" id="noiseCheckbox">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container" for="tintCheckbox">Tint
+                      <input type="checkbox" id="tintCheckbox">
+                      <span class="checkmark"></span>
+                    </label>
+                </section>
             </section>
-            <section class='sliders'>
-                <input class= "slider" id="slider1" type ="range" min ="190" max="300" step ="10" value ="200"/>
-
-                <input class= "slider" id="slider2" type ="range" min ="0.0" max="1.0" step =".05" value ="0.0"/>
-
-                <input class= "slider" id="slider3" type ="range" min ="0.0" max="1.0" step =".1" value ="0.0"/>
-            </section>
-        </section>
-
-        <section class="check_boxes" >  
-            <label class="container" for="invertCheckbox">Invert
-              <input type="checkbox" checked="checked" id="invertCheckbox">
-              <span class="checkmark"></span>
-            </label>
-            <label class="container" for="noiseCheckbox">Noise
-              <input type="checkbox" id="noiseCheckbox">
-              <span class="checkmark"></span>
-            </label>
-            <label class="container" for="tintCheckbox">Tint
-              <input type="checkbox" id="tintCheckbox">
-              <span class="checkmark"></span>
-            </label>
-        </section>
+        </div>
         
         <img src="media/background.jpg" id="background" width="1116" height="1116">
         <footer><h5 id= "copyright"> &copy; Copyright 2016 Megan Smith </h5></footer>

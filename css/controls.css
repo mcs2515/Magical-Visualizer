@@ -11,6 +11,7 @@
     padding: 0 1em;
     text-align: left;
     box-shadow: 5px 5px 50px #000;
+    border-radius: 0px 10px 10px 0;
 }
 
 .options {
@@ -114,12 +115,14 @@
     margin-top: 5pt;
     margin-right: 0pt;
     text-indent: -70pt;
+    font-weight: 100;
 }
 
 #visual{
     text-indent: 140pt;
     margin-top: -63pt;
     font-size: 14pt;
+    font-style: italic;
 }
 
 h4{
@@ -143,88 +146,148 @@ footer{
         position: relative;
         margin: 0 auto;
         width: 625pt;
-        height: 450pt;
+        height: 230pt;
+        margin-bottom: 30px;
         padding: 0 50px;
+        border-radius: 0 0 5px 5px;
     }
     
     #title{
-        margin-bottom: 20pt;
+        padding-top: 10pt;
+        padding-left: 0;
+        margin-left: 0;
+        margin-bottom: 0pt;
     }
     
     #magical{
         padding-top: 10pt;
+        font-weight: 100;
     }
     
-     #visual{
+    #visual{
         margin-top: -65pt;
     }
     
     h4{
-
         margin-top: 15pt;
     }
 
     .options{
-        position: relative;
-        margin: 0 auto;
-        margin-top: 10pt;
-        width: 100%;
+        text-align: left;
     }
     
-    .options li{
-        position: relative;
-        margin: 0 auto;
+    .options ul{
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .options ul li{
         padding: 5pt 10pt;
         display: inline;
         margin-right: 10pt;
+        text-indent: 0;
+        margin-bottom: 3pt;
     }
     
-    .modes li{
-        width: 10ppt;
+    .wrap, .inner_wrap{
+        display: flex;
     }
     
     .effects{
         position: relative;
-        width: 100%;
+        width: 290pt;
+    }
+    
+    .labels{
+        padding-left: 5px;
+    }
+    
+    .labels label{
+        padding-top: 0;
+        padding-bottom: 15pt;
     }
     
     .sliders{
-        margin-left: 32pt;
+        margin-right: 20pt;
     }
     
-    h5{
-        margin-top: 30pt;
-        margin-bottom: 0pt;
+    .slider{
+        margin-top: 5pt;
+        margin-bottom: 19pt;
+    }
+    
+    footer{
+        margin-top: 50pt;
     }
 }
 
 @media screen and (max-width: 950px){
     #controls{
-        width: 100%;
         padding: 0;
-        padding-bottom: 100pt;
+        width: 100%;
         margin-bottom: 0;
         padding-bottom: 20pt;
     }
     
-    canvas{
-        width: 100%;
-        height: auto;
+    .wrap, .inner_wrap{
         position: relative;
         margin: 0 auto;
+        width: 95%;
     }
     
-    h4{
-        margin-bottom: 0pt;
-        margin-left: 10pt;
+    #title{
+        padding-left: 5pt;
     }
     
-    .options ul li{
-        margin-left: -25pt;
+    #magical{
+        font-size: 35pt;
     }
     
-    .options li{
-        display:block;
+    #visual{
+        text-indent: 120pt;
+        padding-top: 8pt;
+    }
+    
+    .songs, .modes, .effects{
+        font-size: 10pt;
+    }
+    
+    .songs,.modes{
+        width: 160px;
+    }
+    
+    .options ul{
+        width: 150px;
+    }
+
+    .effects{
+        width: 100%;
+    }
+    .slider{
+        margin-bottom: 17pt;
+    }
+    
+    footer{
+        margin-top: 70pt;
+    }
+}
+
+@media screen and (max-width: 675px){
+    #controls{
+        height: 390pt;
+    }
+    
+    #title{
+        margin-bottom: 0pt;   
+    }
+    
+    .wrap{
+        display: block;
+    }
+    
+    footer{
+        margin-top: 10px;
     }
 }
 
@@ -232,8 +295,10 @@ footer{
     #controls{
         margin-bottom: 0pt;
         box-shadow: none;
-        height: 600px;
+        min-width: 360px;
+        height: 500px;
     }
+    
     #magical{
         padding-top: 5pt;
         font-size: 26pt;
@@ -242,46 +307,23 @@ footer{
      #visual{
         font-size: 12pt;
         text-indent: 90pt;
-        margin-top: -45pt;
+        margin-top: -52pt;
     }
     
     #title{
         position: relative;
         margin: 0 auto;
-        margin-bottom: -5pt;
         height: 45pt;
         text-align: center;
     }
     
-    .rowOne, .rowTwo{
-        float: none;
-        width: 100%;
-    }
-    
-    .options{
-        position: relative;
-        margin: 0 auto;
-        width: 95%;
-    }
-    
-    .options li{
-        margin-left: -5pt; 
-    }
-    
-    .modes, .songs, .effects{
-        position: relative;
-        margin: 0 auto;
-        width: 100%;
-        border-style: none;
-    }
-    
-    .songs, .modes{
-        margin-bottom: 20pt;
-        padding: 0;
-    }
-    
+
     .effects label{
-        margin-left: 22pt; 
-    }  
+        margin-left: 10pt; 
+    }
+    
+    footer{
+        margin-top: 0px;
+    }
 }
 
