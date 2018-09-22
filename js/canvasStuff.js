@@ -10,7 +10,6 @@
     var invert=false, tint=false, noise=false;
     var modeType = "frequency";
     var img, pattern, ang = 0, rot=0;
-    var my_gradient;
     
     function init(){
         
@@ -28,15 +27,16 @@
         // call our helper function and get an analyser node
         analyserNode = createWebAudioContextWithAnalyserNode(audioElement);
         
-        document.querySelector("#slider1").onchange = function(){
+        document.querySelector("#slider1").oninput = function(){
             maxRadius = parseFloat(document.querySelector("#slider1").value);
+            
         };
                       
-        document.querySelector("#slider2").onchange = function(){
+        document.querySelector("#slider2").oninput = function(){
             greyScale = parseFloat(document.querySelector("#slider2").value);
         };
 
-        document.querySelector("#slider3").onchange = function(){
+        document.querySelector("#slider3").oninput = function(){
             delayAmount = parseFloat(document.querySelector("#slider3").value);
         };
 
@@ -47,6 +47,7 @@
         songFile= document.querySelector('audio').src;
         // load and play default sound into audio element
         playStream(audioElement,songFile);
+        
         
         // start animation loop
         update();
@@ -62,7 +63,6 @@
         // create a new array of 8-bit integers (0-255)
         var data = new Uint8Array(NUM_SAMPLES/2);
         
-        
         //check to see what mode the user wants
         if(modeType=="frequency"){
             // populate the array with the frequency data
@@ -76,9 +76,7 @@
         
         //clear the canvas
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        ctx.fillStyle=my_gradient;
         ctx.fillRect(0,0,canvas.width,canvas.height);  
-       
         
         drawBackground();
         
@@ -266,7 +264,6 @@
         //we are looping through this 60 fps-wow
         var data = imageData.data;
         var length = data.length;
-        var width = imageData.width;
 
         //iii)Iteratethrougheachpixel
         //we step by 4 so that we can manipulate pixel per iteration
@@ -293,26 +290,26 @@
                 //data[i]=data[i+1]=data[i+2]=0; //or back noise
                 data[i+3]=255; //alpha
             }
+        
+
+            //this sets the greyscale for each particle based on the scale
+            //let c equal the value on the scale between 0----->1
+            //we want to go from [r,g,b]----->[gr,gr,gr]  //let gr equal the color grey
+            // (1-c)*[r,g,b] + c*[gr,gr,gr]   if c= 0, we get rgb, else if c=1 we get gr
+            var average = (data[i]+ data[i+1]+ data[i+2])/3; //getting a grey valuev "gr"
+            var saturated = greyScale*average; //depending on the scale value, change between grey to normal rgb values "c*gr"
+            var oppositeVal= (1-greyScale); //if callGrey=0, we get rgb, else if callGrey=1, we get grey "1-c"
+
+            // (1-c)*[r] + c[gr]
+            data[i] = oppositeVal* data[i] + saturated;
+            // (1-c)*[g] + c[gr]  
+            data[i+1] = oppositeVal* data[i+1] + saturated;
+            // (1-c)*[b] + c[gr]  
+            data[i+2] = oppositeVal* data[i+2] + saturated;
         }
-
-        //this sets the greyscale for each particle based on the scale
-        //let c equal the value on the scale between 0----->1
-        //we want to go from [r,g,b]----->[gr,gr,gr]  //let gr equal the color grey
-        // (1-c)*[r,g,b] + c*[gr,gr,gr]   if c= 0, we get rgb, else if c=1 we get gr
-        var average = (data[i]+ data[i+1]+ data[i+2])/3; //getting a grey value "gr"
-        var saturated = greyScale*average; //depending on the scale value, change between grey to normal rgb values "c*gr"
-        var oppositeVal= (1-greyScale); //if callGrey=0, we get rgb, else if callGrey=1, we get grey "1-c"
-
-        // (1-c)*[r] + c[gr]    
-        data[i] = oppositeVal* data[i] + saturated;
-        // (1-c)*[g] + c[gr]  
-        data[i+1] = oppositeVal* data[i+1] + saturated;
-        // (1-c)*[b] + c[gr]  
-        data[i+2] = oppositeVal* data[i+2] + saturated;              
-
+        
         //put the modified data back on the canvas
         ctx.putImageData(imageData,0,0);
-        //console.log("was called");
     }
 
     function setupButtons(){
@@ -339,7 +336,6 @@
         //get the new file path to song and send to playStream()
         songFile = 'media/' + e.target.id.replace(/_/g, " ") + '.mp3';   
         playStream(audioElement,songFile);
-        console.log(e.target.id);
         
         var selectedSong = document.querySelector('.selected');
         //remove selection off of last played song
@@ -363,5 +359,5 @@
         return color;
     }
     
-    window.addEventListener("load",init);
+    window.onload = init;
 }());
