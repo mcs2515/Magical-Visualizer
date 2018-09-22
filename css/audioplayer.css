@@ -53,6 +53,7 @@
 		.audioplayer-playpause:focus
 		{
 			background-color: #222;
+      border-radius: 15px 0 0 15px;
 		}
 		.audioplayer-playpause a
 		{
@@ -180,6 +181,7 @@
 		.audioplayer-volume:focus
 		{
 			background-color: #222;
+      border-radius: 0 15px 15px 0;
 		}
 		.audioplayer-volume-button
 		{
@@ -349,20 +351,29 @@
         width: 470px;
         border-radius: 8px;
     }
+    
+    .audioplayer-playpause:hover,
+		.audioplayer-playpause:focus
+		{
+      border-radius: 8px 0 0 8px;
+		}
+    
+    .audioplayer-volume:hover,
+		.audioplayer-volume:focus
+		{
+      border-radius: 0 8px 8px 0;
+		}
 }
 
 @media screen and (max-width: 950px){
     .audioplayer{
-        margin-top: 45px;
         width: 50%;
-        border-radius: 8px;
     }
 }
 
 @media screen and (max-width: 675px){
     .audioplayer{
         width: 100%;
-        border-radius: 8px;
         margin-top: 10px;
     }
 }

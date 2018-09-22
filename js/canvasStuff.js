@@ -45,7 +45,7 @@
 
         songFile= document.querySelector('audio').src;
         // load and play default sound into audio element
-        playStream(audioElement,songFile);
+        //playStream(audioElement,songFile);
         
         
         // start animation loop
@@ -81,7 +81,10 @@
         
         drawBackground();
         
-        drawSpiral(data);
+        if(!audioElement.paused){
+            drawSpiral(data);
+        }
+        
         drawHeart();
         drawRects(data);
         
