@@ -116,6 +116,7 @@
     margin-right: 0pt;
     text-indent: -70pt;
     font-weight: 100;
+    color:#ffedf2;
 }
 
 #visual{
@@ -139,7 +140,7 @@ footer{
 }
 
 
-@media screen and (max-width: 1505px){
+@media screen and (max-width: 1540px){
     
     #controls{
         display: block;

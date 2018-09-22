@@ -345,7 +345,7 @@
 		transition: color .25s ease, background-color .25s ease, opacity .5s ease;
 	}
 
-@media screen and (max-width: 1505px){
+@media screen and (max-width: 1540px){
     .audioplayer{
         margin-top: 45px;
         width: 470px;
