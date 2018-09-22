@@ -6,102 +6,107 @@
     display: inline-block;
     background: #333333;
     width: 20%;
+    height: 775px;
     color: #eee;
-    padding: 1em;
+    padding: 0 1em;
     text-align: left;
-    top:0;
-    padding-top: 0pt;
-    padding-bottom: 0pt;
-    max-height: 775pt;
     box-shadow: 5px 5px 50px #000;
+    border-radius: 0px 10px 10px 0;
 }
 
 .options {
     font-weight: bold;
     color: #ccffcc;
-    width: 95%;
     margin: 0 auto;
+    width: 95%
 }
 
-
-.magicalColors{
-    color: #b4e0e4;
-
+.options ul {
+    padding: 0;
 }
 
-.options li{
+.options ul li{
     list-style: none;
     padding: .3em;
     border-bottom: 1px #333 solid;
-    position: relative;
-    margin-left: -15%;
     text-indent: 1em;
-}
-
-.sliders{
-    margin-left: 25pt;
-    width: 39%;
-    margin-top: -5pt;
-}
-
-#box{
-    position: relative;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 6pt;
-}
-
-.magicButton{
-        
-}
-
-.magicButton ul{
-    padding: 0;
-/*    margin-top: 30%;*/
 }
 
 .options li:hover{
     cursor: pointer;
     background: #555;
-    border-radius: 10pt;
+    border-radius: 8pt;
     color: mediumpurple;
 }
 
-.magicButton li:hover {
+.labels{
+    font-weight: bold;
+    color: grey;
+    display:flex;
+    flex-direction: column;
+    float: left;
+    padding-left: 30px;
+    padding-right: 15px;
+}
+
+.labels label{
+    padding: 10px 0;
+}
+
+.effects section{
+    display: flex;
+}
+
+.effects .sliders{
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    height: 5px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    outline: none;
+    margin: 16px 0;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    background: #ccffcc;
     cursor: pointer;
-    background: #555;
+}
+
+.slider::-webkit-slider-thumb:hover{
+    background-color: mediumpurple;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
 }
 
 .selected{
     background: #555;
-    border-radius: 10pt;
+    border-radius: 8pt;
 }
-
-label{
-    margin-left: 0pt;
-}
-
-#slider1{
-    margin-left: 1em;
-}
-
-#slider2{
-    margin-left: 2.2em;
-}
-
-#slider3{
-    margin-left: .9em;
-}
-
 
 #title{
+    padding-top: 20pt;
     position: relative;
     margin: 0 auto;
-    margin-bottom: 5pt;
+    margin-bottom: 15pt;
     height: 60pt;
     text-align: center;
 }
-
 
 #magical{
     font-family: 'Niconne';
@@ -110,67 +115,27 @@ label{
     margin-top: 5pt;
     margin-right: 0pt;
     text-indent: -70pt;
+    font-weight: 100;
 }
 
 #visual{
     text-indent: 140pt;
     margin-top: -63pt;
     font-size: 14pt;
+    font-style: italic;
 }
+
 h4{
-    margin-top: 0;
-    margin-bottom: 0;   
+    margin-top: 10pt;
+    margin-bottom: 0;
+    padding-left: 5px;
 }
 
-.magicButton{
-    position: relative;
-    margin: 0 auto;
-    text-align: center;
-    color: hotpink;
-    font-family: 'Niconne';
-    font-size: 20pt;
-    letter-spacing: 2px;
-    text-indent: 0;
-    border-radius: 100%;
-    border-width: 5pt;
-/*    border-top: 1px #333 solid;*/
-    border-style: solid;
-    border-color: #555;
-    width: 100pt;
-    height: 100pt;
-    margin-top: 21pt;
-    margin-bottom: 10pt
-}
-
-.magicTheme{
-    list-style: none;
-    padding-top: 30pt;
-    border-radius: 100%;
-    margin-top: -22.5pt;
-    margin-left: -2pt;
-    width: 104pt;
-    height: 75pt;
-}
-
-.changeTheme{
-    font-family: Ariel, sans-serif;
-    letter-spacing: 0;
-    font-size: 18pt;
-    color:floralwhite;
-    list-style: none;
-    padding-top: 35pt;
-    border-radius: 100%;
-    margin-top: -22.5pt;
-    margin-left: -2pt;
-    width: 104pt;
-    height: 70pt;
-}
-
-h5{
-    margin-bottom: 6pt;
+footer{
     margin-top: 0pt;
     color: #555;
-    font-size: 8pt;
+    font-size: 12pt;
+    margin-top: 80pt;
 }
 
 
@@ -180,97 +145,149 @@ h5{
         display: block;
         position: relative;
         margin: 0 auto;
-        width: 677pt;
-        margin-bottom: 20pt;
-        margin-top: -5pt;
-        padding-bottom: 30pt;
+        width: 625pt;
+        height: 230pt;
+        margin-bottom: 30px;
+        padding: 0 50px;
+        border-radius: 0 0 5px 5px;
+    }
+    
+    #title{
+        padding-top: 10pt;
+        padding-left: 0;
+        margin-left: 0;
+        margin-bottom: 0pt;
     }
     
     #magical{
         padding-top: 10pt;
+        font-weight: 100;
     }
     
-     #visual{
+    #visual{
         margin-top: -65pt;
     }
     
     h4{
-        margin-left: 20pt;
+        margin-top: 15pt;
     }
 
     .options{
-        position: relative;
-        margin: 0 auto;
-        margin-top: 10pt;
+        text-align: left;
     }
     
-    .options li{
-        position: relative;
-        margin: 0 auto;
+    .options ul{
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .options ul li{
         padding: 5pt 10pt;
         display: inline;
         margin-right: 10pt;
+        text-indent: 0;
+        margin-bottom: 3pt;
     }
     
-    
-    .modes li{
-        width: 10ppt;
+    .wrap, .inner_wrap{
+        display: flex;
     }
     
     .effects{
         position: relative;
-        width: 100%;
+        width: 290pt;
+    }
+    
+    .labels{
+        padding-left: 5px;
+    }
+    
+    .labels label{
+        padding-top: 0;
+        padding-bottom: 15pt;
     }
     
     .sliders{
-        margin-left: 32pt;
-    }
-    
-    box{
-        float: right;
-    }
-    .boxLabel{
         margin-right: 20pt;
     }
     
-    .magicButton{
-        position: relative;
-        margin: 0 auto;
-        margin-top: 30pt;
+    .slider{
+        margin-top: 5pt;
+        margin-bottom: 19pt;
     }
     
-    h5{
-        margin-top: 30pt;
-        margin-bottom: 0pt;
+    footer{
+        margin-top: 50pt;
     }
 }
 
 @media screen and (max-width: 950px){
     #controls{
-        width: 100%;
         padding: 0;
-        padding-bottom: 100pt;
+        width: 100%;
         margin-bottom: 0;
         padding-bottom: 20pt;
     }
     
-    canvas{
-        width: 100%;
-        height: auto;
+    .wrap, .inner_wrap{
         position: relative;
         margin: 0 auto;
+        width: 95%;
     }
     
-    h4{
-        margin-bottom: 0pt;
-        margin-left: 10pt;
+    #title{
+        padding-left: 5pt;
     }
     
-    .options ul li{
-        margin-left: -25pt;
+    #magical{
+        font-size: 35pt;
     }
-    .options li{
-        display:block;
+    
+    #visual{
+        text-indent: 120pt;
+        padding-top: 8pt;
+    }
+    
+    .songs, .modes, .effects{
+        font-size: 10pt;
+    }
+    
+    .songs,.modes{
+        width: 160px;
+    }
+    
+    .options ul{
+        width: 150px;
+    }
+
+    .effects{
+        width: 100%;
+    }
+    .slider{
+        margin-bottom: 17pt;
+    }
+    
+    footer{
+        margin-top: 70pt;
+    }
+}
+
+@media screen and (max-width: 675px){
+    #controls{
+        height: 390pt;
+    }
+    
+    #title{
+        margin-bottom: 0pt;   
+    }
+    
+    .wrap{
+        display: block;
+    }
+    
+    footer{
+        margin-top: 10px;
     }
 }
 
@@ -278,7 +295,10 @@ h5{
     #controls{
         margin-bottom: 0pt;
         box-shadow: none;
+        min-width: 360px;
+        height: 500px;
     }
+    
     #magical{
         padding-top: 5pt;
         font-size: 26pt;
@@ -287,67 +307,23 @@ h5{
      #visual{
         font-size: 12pt;
         text-indent: 90pt;
-        margin-top: -45pt;
+        margin-top: -52pt;
     }
     
     #title{
         position: relative;
         margin: 0 auto;
-        margin-bottom: -5pt;
         height: 45pt;
         text-align: center;
     }
     
-    .rowOne, .rowTwo{
-        float: none;
-        width: 100%;
-    }
-    
-    .options{
-        position: relative;
-        margin: 0 auto;
-        width: 95%;
-    }
-    
-    .options li{
-        margin-left: -5pt; 
-    }
-    
-    
-    .modes, .songs, .effects{
-        position: relative;
-        margin: 0 auto;
-        width: 100%;
-        border-style: none;
-    }
-    
-    .songs, .modes{
-        margin-bottom: 20pt;
-        padding: 0;
-    }
-    
+
     .effects label{
-        margin-left: 22pt; 
-    }
-
-    .boxLabel{
-        margin-right: 0;
+        margin-left: 10pt; 
     }
     
-    #box{
-        position: relative;
-        margin: 0 auto;
-        width:100%;
+    footer{
+        margin-top: 0px;
     }
-    
-    .magicButton{
-        position: relative;
-        margin: 0 auto;
-        margin-top: 20pt;
-    }
-
-    
-    
-
 }
 
