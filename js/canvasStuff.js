@@ -4,7 +4,7 @@
     var NUM_SAMPLES = 256;
     var selectedSong, songFile;
     var audioElement;
-    var analyserNode; 
+    var analyserNode, delayNode; 
     var canvas,ctx;
     var greyScale=0.0, maxRadius=200, delayAmount= 0.0;
     var invert=false, tint=false, noise=false;
@@ -28,8 +28,7 @@
         analyserNode = createWebAudioContextWithAnalyserNode(audioElement);
         
         document.querySelector("#slider1").oninput = function(){
-            maxRadius = parseFloat(document.querySelector("#slider1").value);
-            
+            maxRadius = parseFloat(document.querySelector("#slider1").value);    
         };
                       
         document.querySelector("#slider2").oninput = function(){
@@ -62,6 +61,8 @@
         
         // create a new array of 8-bit integers (0-255)
         var data = new Uint8Array(NUM_SAMPLES/2);
+        //for delays
+        delayNode.delayTime.value= delayAmount;
         
         //check to see what mode the user wants
         if(modeType=="frequency"){
@@ -88,9 +89,7 @@
         manipulatePixels();
     } 
 
-    //HELPERS====================================================================================================================================================================
-
-    //checks for Checkboxes-----------------------------------------------------------------------------------------------------
+    //checks for Checkboxes
     function setupEffects(){
         //call the checkfunc method, sending the box id names and an anonymous function that sets a value
         checkfunc("invertCheckbox", function(v) { invert = v; });
@@ -98,14 +97,13 @@
         checkfunc("noiseCheckbox", function(v) { noise = v; });
     }
 
-    //calls the manipulate function on the checkbox that was checked------------------------------------------------------------
+    //calls the manipulate function on the checkbox that was checked
     function checkfunc(boxName, changeVal) {
         document.getElementById(boxName).onchange = function(e){
             changeVal(e.target.checked);
         };
     }
     
-    //-------------------------------------------------------------------------------------------------------------------------
     function createWebAudioContextWithAnalyserNode(audioElement) {
 
         // create new AudioContext
@@ -121,13 +119,17 @@
         let sourceNode = audioCtx.createMediaElementSource(audioElement); 
         sourceNode.connect(analyserNode);
         
+        //create DelayNode instance
+        delayNode = audioCtx.createDelay();
+
         //connect rouse node directly to speakers to hear unaltered source in this channel
         sourceNode.connect(audioCtx.destination);
-
-        let biquadFilter = audioCtx.createBiquadFilter();
-        biquadFilter.type = "highshelf";
-        biquadFilter.frequency.setValueAtTime(1000, audioCtx.currentTime);
-        biquadFilter.gain.setValueAtTime(25, audioCtx.currentTime);
+        //this channel will play and visualize the delay
+        sourceNode.connect(delayNode);
+        delayNode.connect(analyserNode);
+        
+        //connect rouse node directly to speakers to hear unaltered source in this channel
+        analyserNode.connect(audioCtx.destination);
 
         return analyserNode;
     }
@@ -259,13 +261,11 @@
         var imageData=ctx.getImageData(0,0,canvas.width, canvas.height);
 
         //ii)imageData.data is an 8-bit  typed array- values range from 0-255
-        //imageData.data contains 4 values per pixel: 4 x canvas.width x
-        //canvas.height = 10240000 values!
+        //imageData.data contains 4 values per pixel
         //we are looping through this 60 fps-wow
         var data = imageData.data;
         var length = data.length;
 
-        //iii)Iteratethrougheachpixel
         //we step by 4 so that we can manipulate pixel per iteration
         //data[i]is the red value
         //data[i+1]is the green value
@@ -291,7 +291,6 @@
                 data[i+3]=255; //alpha
             }
         
-
             //this sets the greyscale for each particle based on the scale
             //let c equal the value on the scale between 0----->1
             //we want to go from [r,g,b]----->[gr,gr,gr]  //let gr equal the color grey
